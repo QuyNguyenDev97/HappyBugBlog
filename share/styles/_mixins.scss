@@ -1,0 +1,26 @@
+@import "variables";
+
+@function toRem($value) {
+  $remValue: ($value / 16) + rem;
+  @return $remValue;
+}
+
+@mixin text-gradient {
+  background: linear-gradient(
+    to right,
+    $primary-color 20%,
+    $secondary-color 40%,
+    $secondary-color 60%,
+    $primary-color 80%
+  );
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 1s linear infinite;
+  @keyframes shine {
+    to {
+      background-position: 200% center;
+    }
+  }
+}

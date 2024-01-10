@@ -1,0 +1,152 @@
+@import "../share/styles/mixins";
+
+.home-wrapper {
+  position: relative;
+  animation: fadeIn 1s ease-in-out;
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 100dvh;
+
+  .banner-section {
+    scroll-snap-align: start;
+    height: 100dvh;
+    background-color: transparent;
+    position: relative;
+    z-index: 10;
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .contact-github {
+      color: white;
+      background-image: linear-gradient(to right, $primary-color 0%, $secondary-color 100%);
+      font-size: 16px;
+    }
+    .linear-wipe {
+      @include text-gradient;
+    }
+    .section-cover {
+      z-index: -2;
+      width: 100%;
+      height: toRem(400);
+      background-image: url("/headershadow.svg");
+      object-fit: cover;
+      background-position: 50% 100%;
+      background-repeat: no-repeat;
+      background-size: cover;
+      position: absolute;
+      top: 0;
+      bottom: auto;
+      left: 0%;
+      right: 0%;
+    }
+    .breadcrumb-text-first {
+      :hover {
+        color: #ed1e79;
+        text-decoration: underline;
+        text-decoration-color: #ed1e79;
+        text-underline-offset: 0.2rem;
+      }
+    }
+    .breadcrumb-text-seconds {
+      :hover {
+        color: #9c5dc7;
+        text-decoration: underline;
+        text-decoration-color: #9c5dc7;
+        text-underline-offset: 0.2rem;
+      }
+    }
+    .bg-section {
+      background-image: url("/bgsection.png");
+      background-color: #272142;
+      background-repeat: no-repeat;
+      background-position: center bottom;
+      animation: animatedBackground 10s linear infinite alternate;
+      background-size: 105% !important;
+      height: 200px;
+      z-index: 12;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+  }
+
+  .about-section {
+    scroll-snap-align: start;
+    height: 100dvh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .about-bg-cover {
+      background-image: url("/aboutSection.png");
+      background-position: 50% 100%;
+      background-repeat: no-repeat;
+      background-size: cover;
+      position: absolute;
+      inset: 0;
+    }
+    .about-bg-cover-secondary {
+      background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.01) 100%), url("/square.svg");
+      position: absolute;
+      inset: 0;
+    }
+    .about-content {
+      .about-content-title {
+        @include text-gradient;
+        margin-bottom: toRem(8);
+      }
+      .about-content-paper {
+        border-radius: toRem(8);
+        padding: toRem(8) toRem(16);
+        .about-content-desc {
+          padding: toRem(4) toRem(8);
+          margin-bottom: toRem(8);
+          .about-content-desc-paper-primary {
+            background-color: $primary-color;
+            padding: toRem(1) toRem(4);
+            display: inline-block;
+          }
+        }
+      }
+    }
+    .about-avatar {
+      position: relative;
+      z-index: 10;
+      pointer-events: none;
+      height: toRem(500);
+      border-radius: toRem(20);
+      overflow: hidden;
+      object-fit: cover;
+    }
+  }
+
+  .contact-section {
+    scroll-snap-align: start;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  @keyframes animatedBackground {
+    0% {
+      background-position: left bottom;
+    }
+    100% {
+      background-position: right bottom;
+    }
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}
